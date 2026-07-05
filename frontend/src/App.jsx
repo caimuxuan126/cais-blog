@@ -1,6 +1,7 @@
 import { Routes, Route, useLocation } from 'react-router-dom';
 import Header from './components/Header';
 import ProtectedRoute from './components/ProtectedRoute';
+import AdminRoute from './components/AdminRoute';
 import IntroPage from './pages/IntroPage';
 import HomePage from './pages/HomePage';
 import ArticlesPage from './pages/ArticlesPage';
@@ -49,17 +50,17 @@ export default function App() {
           <Route
             path="/new"
             element={
-              <ProtectedRoute>
+              <AdminRoute>
                 <NewArticlePage />
-              </ProtectedRoute>
+              </AdminRoute>
             }
           />
           <Route
             path="/edit/:id"
             element={
-              <ProtectedRoute>
+              <AdminRoute>
                 <EditArticlePage />
-              </ProtectedRoute>
+              </AdminRoute>
             }
           />
           <Route path="/about" element={<AboutPage />} />

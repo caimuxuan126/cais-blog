@@ -95,7 +95,7 @@ export default function ArticlePage() {
           >
             {isLiked ? '❤️' : '🤍'} {article.likes.length} 赞
           </button>
-          {user && user.username === article.author && (
+          {user && user.username === 'Cai' && user.username === article.author && (
             <button
               className="btn-edit-article"
               onClick={() => navigate(`/edit/${article.id}`)}

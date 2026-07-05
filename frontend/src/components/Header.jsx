@@ -77,9 +77,11 @@ export default function Header() {
 
           {user ? (
             <>
-              <Link to="/new" className="brand-btn" style={{ padding: '8px 18px', fontSize: '0.85rem' }}>
-                写文章
-              </Link>
+              {user.username === 'Cai' && (
+                <Link to="/new" className="brand-btn" style={{ padding: '8px 18px', fontSize: '0.85rem' }}>
+                  写文章
+                </Link>
+              )}
               <span className="user-info">{user.username}</span>
               <button onClick={handleLogout} className="btn-logout">
                 退出
