@@ -67,3 +67,42 @@ class Favorite(Base):
 
     user = relationship("User", back_populates="favorites")
     post = relationship("Post", back_populates="favorites")
+
+
+class Follow(Base):
+    __tablename__ = "follows"
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    follower_id = Column(Integer, ForeignKey("users.id"), nullable=False)
+    followed_id = Column(Integer, ForeignKey("users.id"), nullable=False)
+    created_at = Column(DateTime, server_default=func.now())
+
+    follower = relationship("User", foreign_keys=[follower_id], backref="following")
+    followed = relationship("User", foreign_keys=[followed_id], backref="followers")
+
+
+class Notification(Base):
+    __tablename__ = "notifications"
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    user_id = Column(Integer, ForeignKey("users.id"), nullable=False)
+    actor_id = Column(Integer, ForeignKey("users.id"), nullable=False)
+    type = Column(String(20), nullable=False)  # like | comment | follow | mutual | message
+    post_id = Column(Integer, ForeignKey("posts.id"), nullable=True)
+    message = Column(Text, default="")
+    is_read = Column(Integer, default=0)
+    created_at = Column(DateTime, server_default=func.now())
+
+    user = relationship("User", foreign_keys=[user_id], backref="notifications")
+    actor = relationship("User", foreign_keys=[actor_id])
+
+
+class Message(Base):
+    __tablename__ = "messages"
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    sender_id = Column(Integer, ForeignKey("users.id"), nullable=False)
+    receiver_id = Column(Integer, ForeignKey("users.id"), nullable=False)
+    content = Column(Text, nullable=False)
+    is_read = Column(Integer, default=0)
+    created_at = Column(DateTime, server_default=func.now())
+
+    sender = relationship("User", foreign_keys=[sender_id], backref="sent_messages")
+    receiver = relationship("User", foreign_keys=[receiver_id], backref="received_messages")

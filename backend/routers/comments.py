@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from database import get_db
-from models import Comment, Post, User
+from models import Comment, Notification, Post, User
 from schemas import CommentCreate, CommentOut
 from auth import get_current_user
 
@@ -15,10 +15,21 @@ def list_comments(post_id: int, db: Session = Depends(get_db)):
 
 @router.post("", response_model=CommentOut, status_code=201)
 def create_comment(post_id: int, data: CommentCreate, db: Session = Depends(get_db), user: User = Depends(get_current_user)):
-    if not db.query(Post).filter(Post.id == post_id).first():
+    post = db.query(Post).filter(Post.id == post_id).first()
+    if not post:
         raise HTTPException(status_code=404, detail="文章不存在")
     comment = Comment(content=data.content, post_id=post_id, author_id=user.id)
-    db.add(comment); db.commit(); db.refresh(comment)
+    db.add(comment)
+
+    # Notification: comment on post (not self)
+    if post.author_id != user.id:
+        preview = data.content[:40] + ("..." if len(data.content) > 40 else "")
+        db.add(Notification(
+            user_id=post.author_id, actor_id=user.id, type="comment",
+            post_id=post.id, message=f"{user.username} 评论了你的文章：{preview}"
+        ))
+
+    db.commit(); db.refresh(comment)
     return comment
 
 

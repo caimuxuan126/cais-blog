@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from database import init_db
-from routers import users, posts, comments, interactions
+from routers import users, posts, comments, interactions, notifications, messages
 
 app = FastAPI(title="Cai's Blog API", version="1.0")
 
@@ -17,6 +17,8 @@ app.include_router(users.router)
 app.include_router(posts.router)
 app.include_router(comments.router)
 app.include_router(interactions.router)
+app.include_router(notifications.router)
+app.include_router(messages.router)
 
 @app.on_event("startup")
 def on_startup():
