@@ -1,0 +1,195 @@
+/* =================================================================
+   IntroPage — 极简黑粉开场
+   ================================================================= */
+
+.intro-page {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  background: #050505;
+  font-family: 'JetBrains Mono', 'Consolas', 'Monaco', monospace;
+  z-index: 9999;
+}
+
+/* =================================================================
+   背景光晕
+   ================================================================= */
+.intro-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+.intro-glow {
+  position: absolute;
+  border-radius: 50%;
+}
+.glow--tl {
+  width: 800px; height: 800px;
+  top: -250px; left: -200px;
+  background: radial-gradient(circle, rgba(239,76,172,0.22) 0%, transparent 55%);
+  animation: breatheTL 7s ease-in-out infinite;
+}
+.glow--br {
+  width: 700px; height: 700px;
+  bottom: -200px; right: -150px;
+  background: radial-gradient(circle, rgba(239,76,172,0.18) 0%, transparent 55%);
+  animation: breatheBR 8s ease-in-out infinite;
+  animation-delay: -3s;
+}
+.glow--center {
+  width: 400px; height: 400px;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(120,40,100,0.08) 0%, transparent 60%);
+}
+
+@keyframes breatheTL {
+  0%,100% { opacity: 0.50; transform: scale(1); }
+  50%     { opacity: 0.80; transform: scale(1.04); }
+}
+@keyframes breatheBR {
+  0%,100% { opacity: 0.45; transform: scale(1); }
+  50%     { opacity: 0.70; transform: scale(1.04); }
+}
+
+/* =================================================================
+   顶部导航
+   ================================================================= */
+.intro-nav {
+  position: absolute;
+  top: 32px;
+  left: 60px;
+  right: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+}
+.intro-logo {
+  color: rgba(255,255,255,0.85);
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+.intro-links { display: flex; gap: 32px; }
+.intro-link {
+  color: rgba(255,255,255,0.60);
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  transition: color 0.3s, text-shadow 0.3s;
+}
+.intro-link:hover {
+  color: #ef4cac;
+  text-shadow: 0 0 12px rgba(239,76,172,0.5);
+}
+
+/* =================================================================
+   主视觉
+   ================================================================= */
+.intro-main {
+  position: absolute;
+  top: 50%;
+  left: 160px;
+  transform: translateY(-50%);
+  z-index: 5;
+}
+.intro-title {
+  margin: 0 0 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.intro-line {
+  display: block;
+  font-family: 'Inter', 'Franklin Gothic Medium', 'Arial Black', sans-serif;
+  font-size: 6rem;
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -1px;
+  text-transform: uppercase;
+  background: linear-gradient(180deg, #ffffff 20%, #888 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.5));
+}
+.intro-line em {
+  font-style: normal;
+  background: linear-gradient(180deg, #ef4cac 20%, #c7368a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.intro-sub {
+  margin: 0 0 36px;
+  color: rgba(255,255,255,0.42);
+  font-family: 'JetBrains Mono', 'Consolas', 'Monaco', monospace;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+}
+.intro-btn {
+  display: inline-block;
+  background: rgba(0,0,0,0.5);
+  color: #ef4cac;
+  border: 1.5px solid #ef4cac;
+  padding: 14px 40px;
+  font-family: 'JetBrains Mono', 'Consolas', 'Monaco', monospace;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: all 0.35s ease;
+  box-shadow: 0 0 20px rgba(239,76,172,0.15);
+}
+.intro-btn:hover {
+  background: #ef4cac;
+  color: #0a0a0a;
+  box-shadow: 0 0 40px rgba(239,76,172,0.35), 0 0 80px rgba(239,76,172,0.15);
+}
+
+/* =================================================================
+   底部
+   ================================================================= */
+.intro-footer {
+  position: absolute;
+  bottom: 20px;
+  left: 60px;
+  right: 60px;
+  z-index: 5;
+}
+.intro-footer span {
+  color: rgba(255,255,255,0.14);
+  font-size: 0.7rem;
+}
+
+/* =================================================================
+   响应式
+   ================================================================= */
+@media (max-width: 1024px) {
+  .intro-main { left: 60px; }
+  .intro-line { font-size: 4rem; }
+  .intro-nav { left: 40px; right: 40px; }
+}
+
+@media (max-width: 640px) {
+  .intro-main {
+    left: 24px; right: 24px;
+    transform: translateY(-50%);
+  }
+  .intro-line { font-size: 2.6rem; }
+  .intro-sub { font-size: 0.78rem; }
+  .intro-btn { padding: 12px 28px; font-size: 0.78rem; }
+  .intro-nav { left: 24px; right: 24px; top: 20px; }
+  .intro-links { gap: 16px; }
+  .intro-link { font-size: 0.7rem; letter-spacing: 1px; }
+  .glow--tl { width: 400px; height: 400px; top: -120px; left: -100px; }
+  .glow--br { width: 350px; height: 350px; bottom: -120px; right: -80px; }
+  .glow--center { width: 200px; height: 200px; }
+}

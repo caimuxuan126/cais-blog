@@ -1,0 +1,106 @@
+.about-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 32px 20px 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.font-averia { font-family: var(--font-averia); }
+
+.about-hero {
+  text-align: center;
+  padding: 40px 32px;
+}
+.about-hero-avatar { font-size: 4rem; margin-bottom: 8px; }
+.about-hero h1 {
+  margin: 0 0 6px;
+  font-size: 2rem;
+  font-weight: 400;
+  color: var(--primary);
+}
+.about-hero-role {
+  color: var(--secondary);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.about-section {
+  padding: 28px 32px;
+}
+.about-section h2 {
+  margin: 0 0 16px;
+  color: var(--primary);
+  font-size: 1.1rem;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.about-section p {
+  color: rgba(255,255,255,0.78);
+  line-height: 1.8;
+  margin: 0 0 10px;
+  font-size: 0.93rem;
+}
+.about-section strong {
+  color: var(--brand);
+  font-weight: 600;
+}
+
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+.tech-item {
+  background: rgba(239,76,172,0.06);
+  border-radius: 12px;
+  padding: 16px 12px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.tech-icon { font-size: 1.5rem; }
+.tech-item strong { font-size: 0.88rem; color: var(--primary); }
+.tech-item span { font-size: 0.76rem; color: var(--secondary); }
+
+.goal-list { padding-left: 20px; margin: 0; }
+.goal-list li {
+  color: rgba(255,255,255,0.78);
+  line-height: 1.9;
+  padding: 4px 0;
+  font-size: 0.93rem;
+}
+.goal-list li::marker { color: var(--brand); }
+
+.gain-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+.gain-card {
+  background: rgba(239,76,172,0.06);
+  border-radius: 12px;
+  padding: 20px;
+  border-left: 3px solid var(--brand);
+}
+.gain-card h3 {
+  margin: 0 0 8px;
+  font-size: 0.92rem;
+  color: var(--primary);
+}
+.gain-card p {
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--secondary);
+}
+
+@media (max-width: 768px) {
+  .about-page { padding: 20px 12px 36px; gap: 14px; }
+  .about-hero { padding: 28px 20px; }
+  .about-hero h1 { font-size: 1.5rem; }
+  .about-section { padding: 20px; }
+  .tech-grid { grid-template-columns: repeat(2, 1fr); }
+  .gain-cards { grid-template-columns: 1fr; }
+}

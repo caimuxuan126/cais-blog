@@ -1,0 +1,150 @@
+/* ==================== CSS 设计令牌 — 暗色科技风 ==================== */
+:root {
+  --brand: #ef4cac;
+  --brand-secondary: #c7368a;
+  --accent-soft: rgba(239, 76, 172, 0.35);
+  --primary: #ffffff;
+  --secondary: rgba(255, 255, 255, 0.55);
+  --text-muted: rgba(255, 255, 255, 0.35);
+  --bg: #050505;
+  --card-bg: rgba(255, 255, 255, 0.06);
+  --card-bg-hover: rgba(255, 255, 255, 0.10);
+  --card-border: rgba(255, 255, 255, 0.12);
+  --card-border-hover: rgba(239, 76, 172, 0.45);
+  --card-radius: 28px;
+  --font-averia: 'Averia Gruesa Libre', sans-serif;
+  --shadow-pink: 0 0 30px rgba(239, 76, 172, 0.25);
+  --shadow-card: 0 8px 40px rgba(0, 0, 0, 0.4);
+  --input-bg: rgba(255, 255, 255, 0.07);
+  --input-border: rgba(255, 255, 255, 0.12);
+}
+
+/* ==================== 全局基础 ==================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'PingFang SC', -apple-system, system-ui, 'Segoe UI', Roboto,
+    Ubuntu, Cantarell, 'Noto Sans', sans-serif, BlinkMacSystemFont,
+    'Helvetica Neue', 'Hiragino Sans GB', 'Microsoft YaHei', Arial;
+  background: var(--bg);
+  color: var(--primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  /* 边缘粉色径向光晕 */
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 60% 50% at 15% 20%, rgba(239, 76, 172, 0.10) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 40% at 85% 75%, rgba(239, 76, 172, 0.08) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 30% at 50% 50%, rgba(239, 76, 172, 0.04) 0%, transparent 60%);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img { max-width: 100%; }
+button { cursor: pointer; font-family: inherit; }
+input:focus, textarea:focus { outline: none; }
+
+/* ==================== 通用卡片样式 ==================== */
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--card-radius);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: var(--shadow-card);
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+.card:hover {
+  border-color: var(--card-border-hover);
+  box-shadow: var(--shadow-card), var(--shadow-pink);
+}
+
+/* ==================== 品牌色按钮 ==================== */
+.brand-btn {
+  background: var(--accent-soft);
+  color: #fff;
+  border: 1px solid var(--brand);
+  border-radius: 14px;
+  padding: 10px 24px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: background 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+  box-shadow: 0 0 16px rgba(239, 76, 172, 0.15);
+}
+.brand-btn:hover {
+  background: var(--brand);
+  box-shadow: 0 0 28px rgba(239, 76, 172, 0.35);
+}
+
+/* ==================== 渐变色文字 ==================== */
+.text-linear {
+  background: linear-gradient(to right bottom, var(--brand) 30%, #f472b6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ==================== CSS 气泡背景 ==================== */
+.bubbles-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.bubble {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.25;
+  filter: blur(180px);
+  animation: floatBubble 22s ease-in-out infinite;
+}
+.bubble:nth-child(1) {
+  width: 520px; height: 520px;
+  background: #ef4cac;
+  bottom: -120px; left: -100px;
+  animation-delay: 0s;
+}
+.bubble:nth-child(2) {
+  width: 420px; height: 420px;
+  background: #c7368a;
+  bottom: -80px; right: -100px;
+  animation-delay: -6s;
+}
+.bubble:nth-child(3) {
+  width: 360px; height: 360px;
+  background: #f472b6;
+  bottom: 15%; left: 25%;
+  animation-delay: -12s;
+}
+.bubble:nth-child(4) {
+  width: 300px; height: 300px;
+  background: #ef4cac;
+  bottom: 8%; right: 20%;
+  animation-delay: -18s;
+}
+@keyframes floatBubble {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25%      { transform: translate(40px, -25px) scale(1.06); }
+  50%      { transform: translate(-25px, -50px) scale(0.94); }
+  75%      { transform: translate(-35px, -15px) scale(1.03); }
+}

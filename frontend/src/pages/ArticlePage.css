@@ -1,0 +1,183 @@
+.article-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 32px 20px 48px;
+}
+.back-link {
+  display: inline-block;
+  color: var(--secondary);
+  text-decoration: none;
+  font-size: 0.88rem;
+  margin-bottom: 20px;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.back-link:hover { color: var(--brand); }
+
+.article-full {
+  padding: 36px 40px;
+}
+.article-title {
+  margin: 0 0 14px;
+  font-size: 1.75rem;
+  color: var(--primary);
+  line-height: 1.4;
+  font-weight: 700;
+}
+.article-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  font-size: 0.85rem;
+  color: var(--secondary);
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.item-cat-detail {
+  background: rgba(239,76,172,0.12); color: var(--brand);
+  padding: 2px 10px; border-radius: 10px; font-size: 0.75rem; font-weight: 500;
+}
+
+.article-detail-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+.detail-tag {
+  background: rgba(255,255,255,0.05); color: var(--secondary);
+  padding: 2px 10px; border-radius: 8px; font-size: 0.78rem;
+}
+
+.like-area { margin-bottom: 24px; display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+.btn-edit-article {
+  background: transparent; color: var(--secondary);
+  border: 1px solid rgba(255,255,255,0.12); border-radius: 20px;
+  padding: 7px 18px; font-size: 0.85rem; cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-edit-article:hover { border-color: var(--brand); color: var(--brand); }
+
+.btn-like {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.15);
+  color: var(--secondary);
+  padding: 7px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.25s;
+}
+.btn-like:hover {
+  border-color: var(--brand);
+  color: var(--brand);
+}
+.btn-like.liked {
+  background: var(--brand);
+  border-color: var(--brand);
+  color: #fff;
+}
+
+/* ===== Markdown 文章样式 ===== */
+.article-content {
+  line-height: 1.9;
+  color: rgba(255,255,255,0.82);
+  font-size: 1rem;
+  letter-spacing: 0.03em;
+  word-break: break-word;
+}
+.article-content h1, .article-content h2,
+.article-content h3, .article-content h4 {
+  font-weight: 700;
+  line-height: 1.3;
+  margin-top: 1.8em;
+  margin-bottom: 0.8em;
+  color: var(--primary);
+}
+.article-content h1 { font-size: 1.6rem; }
+.article-content h2 { font-size: 1.3rem; }
+.article-content h3 { font-size: 1.1rem; }
+.article-content p { margin: 0.8em 0; }
+.article-content strong {
+  font-weight: 600;
+  color: var(--brand);
+}
+.article-content a {
+  color: var(--brand);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.article-content ul, .article-content ol {
+  margin: 0.75em 0 0.75em 1.5em;
+}
+.article-content ul { list-style-type: square; }
+.article-content li { margin: 0.35em 0; }
+
+.article-content code {
+  background: rgba(239,76,172,0.10);
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 2px 6px;
+  border-radius: 6px;
+  font-size: 0.9em;
+  font-family: 'SF Mono','Fira Code','Consolas',monospace;
+  color: var(--brand);
+}
+.article-content pre {
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 16px 20px;
+  border-radius: 12px;
+  overflow-x: auto;
+  margin: 1em 0;
+  line-height: 1.5;
+  background: rgba(255,255,255,0.03);
+}
+.article-content pre code {
+  background: transparent;
+  border: 0; padding: 0;
+  font-size: 0.9em;
+  color: rgba(255,255,255,0.78);
+}
+.article-content blockquote {
+  border-left: 3px solid var(--brand);
+  background: rgba(239,76,172,0.06);
+  margin: 1em 0;
+  padding: 10px 16px;
+  border-radius: 0 8px 8px 0;
+  color: var(--secondary);
+}
+.article-content hr {
+  border: 0;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  margin: 1.5em 0;
+}
+.article-content table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9em;
+  margin: 1em 0;
+}
+.article-content th, .article-content td {
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  padding: 8px 12px;
+  text-align: left;
+}
+.article-content th {
+  font-weight: 600;
+  background: rgba(239,76,172,0.06);
+}
+.article-content img {
+  max-width: 100%;
+  border-radius: 10px;
+  margin: 1em 0;
+}
+
+.empty-card {
+  text-align: center;
+  padding: 60px 40px;
+  color: var(--secondary);
+}
+.empty-card .back-link { margin-top: 16px; }
+
+@media (max-width: 768px) {
+  .article-page { padding: 20px 12px 36px; }
+  .article-full { padding: 24px 18px; }
+  .article-title { font-size: 1.35rem; }
+  .article-meta { gap: 12px; }
+}

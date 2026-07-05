@@ -1,0 +1,41 @@
+.article-card {
+  padding: 24px 28px;
+  margin-bottom: 16px;
+  transition: transform 0.2s, border-color 0.3s, box-shadow 0.3s;
+}
+.article-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--card-border-hover);
+  box-shadow: var(--shadow-card), var(--shadow-pink);
+}
+.card-title {
+  margin: 0 0 8px;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+.card-title a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.card-title a:hover { color: var(--brand); }
+.card-meta {
+  display: flex;
+  gap: 16px;
+  font-size: 0.8rem;
+  color: var(--secondary);
+  margin-bottom: 10px;
+}
+.card-excerpt {
+  color: var(--secondary);
+  line-height: 1.7;
+  margin: 0 0 10px;
+  font-size: 0.9rem;
+}
+.read-more {
+  color: var(--brand);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+.read-more:hover { text-decoration: underline; }

@@ -1,0 +1,215 @@
+.new-article-page {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 32px 20px;
+}
+.new-article-page h1 {
+  margin-bottom: 24px;
+  color: var(--primary);
+  font-size: 1.5rem;
+}
+.article-form { padding: 32px; }
+
+.form-error {
+  background: rgba(239,76,172,0.10);
+  color: #f8719d;
+  padding: 10px 16px;
+  border-radius: 10px;
+  margin-bottom: 16px;
+  font-size: 0.85rem;
+}
+.form-group { margin-bottom: 20px; }
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: var(--primary);
+  font-size: 0.88rem;
+}
+.form-input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid var(--input-border);
+  border-radius: 10px;
+  font-size: 0.92rem;
+  background: var(--input-bg);
+  color: var(--primary);
+  transition: border-color 0.2s, background 0.2s;
+  box-sizing: border-box;
+}
+.form-input:focus {
+  border-color: var(--brand);
+  background: rgba(255,255,255,0.10);
+}
+.form-input::placeholder { color: var(--text-muted); }
+.form-input.disabled {
+  background: rgba(255,255,255,0.03);
+  color: var(--secondary);
+  cursor: not-allowed;
+}
+
+.form-select {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid var(--input-border);
+  border-radius: 10px;
+  font-size: 0.92rem;
+  background: var(--input-bg);
+  color: var(--primary);
+  transition: border-color 0.2s;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+.form-select:focus { border-color: var(--brand); }
+.form-select option { background: #1a1a1a; color: var(--primary); }
+
+/* Markdown 编辑器头部 */
+.editor-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  flex-wrap: wrap; gap: 8px;
+}
+.editor-header label { margin-bottom: 0; }
+
+.mode-tabs {
+  display: flex; gap: 4px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 8px;
+  padding: 3px;
+}
+.mode-tab {
+  background: transparent;
+  border: none;
+  padding: 5px 14px;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  color: var(--secondary);
+  cursor: pointer;
+  transition: all 0.2s;
+  font-weight: 500;
+}
+.mode-tab:hover { color: var(--primary); }
+.mode-tab.active {
+  background: rgba(255,255,255,0.10);
+  color: var(--brand);
+}
+
+.editor-area { display: flex; gap: 0; }
+.editor-area--split { gap: 16px; }
+.editor-area--split .form-textarea,
+.editor-area--split .markdown-preview { flex: 1; min-width: 0; }
+
+.form-textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--input-border);
+  border-radius: 10px;
+  font-size: 0.9rem;
+  resize: vertical;
+  font-family: 'SF Mono','Fira Code','Consolas',monospace;
+  line-height: 1.7;
+  background: var(--input-bg);
+  color: var(--primary);
+  transition: border-color 0.2s;
+  box-sizing: border-box;
+}
+.form-textarea:focus {
+  border-color: var(--brand);
+  background: rgba(255,255,255,0.10);
+}
+
+.markdown-preview {
+  padding: 14px 18px;
+  border: 1px solid var(--input-border);
+  border-radius: 10px;
+  background: rgba(255,255,255,0.03);
+  min-height: 200px;
+  overflow-y: auto;
+  font-size: 0.92rem;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.78);
+}
+.markdown-preview h1,.markdown-preview h2,.markdown-preview h3 {
+  margin-top: 1em; margin-bottom: 0.5em;
+  font-weight: 600; color: var(--primary);
+}
+.markdown-preview h1 { font-size: 1.4rem; }
+.markdown-preview h2 { font-size: 1.2rem; }
+.markdown-preview h3 { font-size: 1rem; }
+.markdown-preview p { margin: 0.5em 0; }
+.markdown-preview strong { color: var(--brand); font-weight: 600; }
+.markdown-preview ul,.markdown-preview ol { padding-left: 1.5em; margin: 0.5em 0; }
+.markdown-preview li { margin: 0.25em 0; }
+.markdown-preview code {
+  background: rgba(239,76,172,0.10);
+  padding: 2px 6px; border-radius: 4px;
+  font-size: 0.88em;
+  font-family: 'SF Mono','Fira Code','Consolas',monospace;
+  color: var(--brand);
+}
+.markdown-preview pre {
+  background: rgba(255,255,255,0.03);
+  padding: 14px; border-radius: 8px;
+  overflow-x: auto;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.markdown-preview pre code { background: transparent; padding: 0; }
+.markdown-preview blockquote {
+  border-left: 3px solid var(--brand);
+  padding: 8px 14px; margin: 0.5em 0;
+  background: rgba(239,76,172,0.06);
+  border-radius: 0 8px 8px 0;
+  color: var(--secondary);
+}
+.markdown-preview a { color: var(--brand); text-decoration: underline; }
+.markdown-preview table { border-collapse: collapse; width: 100%; margin: 0.5em 0; font-size: 0.88em; }
+.markdown-preview th,.markdown-preview td {
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 6px 12px; text-align: left;
+}
+.markdown-preview th { background: rgba(239,76,172,0.06); font-weight: 600; }
+.preview-empty { color: var(--secondary); font-style: italic; }
+
+/* ---- 标签输入 ---- */
+.tag-input-row { display: flex; gap: 8px; }
+.tag-text-input { flex: 1; }
+.tag-add-btn {
+  background: var(--accent-soft); color: #fff;
+  border: 1px solid var(--brand); border-radius: 10px;
+  padding: 8px 16px; font-size: 0.85rem; cursor: pointer;
+  white-space: nowrap; transition: background 0.2s;
+}
+.tag-add-btn:hover { background: var(--brand); }
+.tag-error { color: #f8719d; font-size: 0.78rem; margin: 6px 0 0; }
+
+.tag-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.tag-chip {
+  display: inline-flex; align-items: center; gap: 4px;
+  background: rgba(239,76,172,0.12); color: var(--brand);
+  padding: 4px 10px; border-radius: 12px; font-size: 0.8rem; font-weight: 500;
+}
+.tag-chip-del {
+  background: none; border: none; color: var(--brand); font-size: 1rem;
+  cursor: pointer; line-height: 1; padding: 0 2px; opacity: 0.6;
+}
+.tag-chip-del:hover { opacity: 1; }
+
+.tag-suggestions { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; align-items: center; }
+.tag-sug-label { font-size: 0.76rem; color: var(--secondary); }
+.tag-sug-btn {
+  background: transparent; color: var(--secondary);
+  border: 1px solid rgba(255,255,255,0.10); border-radius: 10px;
+  padding: 3px 10px; font-size: 0.74rem; cursor: pointer;
+  transition: all 0.2s;
+}
+.tag-sug-btn:hover { border-color: var(--brand); color: var(--brand); }
+.tag-info { color: var(--secondary); font-size: 0.72rem; margin: 8px 0 0; }
+
+@media (max-width: 768px) {
+  .new-article-page { padding: 20px 12px; }
+  .article-form { padding: 20px 16px; }
+  .editor-area--split { flex-direction: column; }
+  .mode-tab { padding: 4px 10px; font-size: 0.78rem; }
+}
